@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEETVIDYA | NEET practice, mock tests and study planner</title>
+<meta name="description" content="Medical entrance prep: exam-style NEET questions, mock tests and a study planner.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#practice">Skip to content</a>
+<header class="top"><div class="wrap bar">
+  <a class="logo" href="#">NEET<span>VIDYA</span></a>
+  <button id="menu" class="burger" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" aria-label="Main">
+    <a href="#practice">Practice</a><a href="#subjects">Subjects</a><a href="#planner">Study planner</a><a href="#plans">Plans</a><a href="#faq">FAQ</a>
+    <a class="btn pen sm" href="#contact">Contact us</a>
+  </nav>
+</div></header>
+
+<main>
+<section id="practice" class="hero"><div class="wrap grid2">
+  <div>
+    <h1>Practise NEET the way the exam asks it.</h1>
+    <p class="lead">Learn better, prepare smarter, achieve more. Exam-style questions, full mock tests and a study plan that fits your days, for Class 11, Class 12 and droppers.</p>
+    <p class="cta"><a class="btn" href="#plans">See plans</a> <a class="btn alt" href="#planner">Plan my study time</a></p>
+  </div>
+  <div class="omr">
+    <div class="tabs" role="group" aria-label="Choose a subject">
+      <button type="button" aria-pressed="true">Physics</button>
+      <button type="button" aria-pressed="false">Chemistry</button>
+      <button type="button" aria-pressed="false">Biology</button>
+    </div>
+    <p id="qno" class="meta"></p>
+    <p id="qtext" class="q"></p>
+    <div id="opts"></div>
+    <div id="fb" class="fb" role="status" hidden></div>
+    <button id="next" class="btn alt sm" type="button" hidden>Next question</button>
+  </div>
+</div></section>
+
+<section id="subjects"><div class="wrap">
+  <h2>Three subjects, one clear plan</h2>
+  <p>NEET UG is marked out of 720. Biology alone carries half of it, so it gets the most study time.</p>
+  <div class="cards3">
+    <article class="card c1"><h3>Physics</h3><p class="meta">180 marks</p><p>Mechanics, thermodynamics, electrostatics, optics and modern physics, with numerical practice.</p></article>
+    <article class="card c2"><h3>Chemistry</h3><p class="meta">180 marks</p><p>Physical, organic and inorganic chemistry, from mole concept to named reactions.</p></article>
+    <article class="card c3"><h3>Biology</h3><p class="meta">360 marks</p><p>Botany and zoology: cell biology, genetics, human physiology, plant physiology and ecology.</p></article>
+  </div>
+</div></section>
+
+<section id="planner" class="tint"><div class="wrap grid2">
+  <div>
+    <h2>Find out how many hours you really have</h2>
+    <p>Pick your exam date and how long you can study each day. We split the hours by marks.</p>
+    <form id="plan">
+      <label for="date">Exam date</label>
+      <input id="date" name="date" type="date">
+      <label for="hours">Study hours per day: <b id="hv">6</b></label>
+      <input id="hours" name="hours" type="range" min="1" max="14" value="6">
+    </form>
+  </div>
+  <div class="panel" id="planout" aria-live="polite"></div>
+</div></section>
+
+<section id="plans"><div class="wrap">
+  <h2>Pick how you want to prepare</h2>
+  <p>Sample plans and prices. Replace them with your own.</p>
+  <div class="cards3">
+    <article class="card"><h3>Free practice</h3><p class="price">₹0</p><ul><li>Daily practice questions</li><li>Chapter quizzes</li><li>Explained answers</li></ul><a class="btn alt" href="#contact">Start free</a></article>
+    <article class="card pick"><h3>Test series</h3><p class="price">₹999 <small>per year</small></p><ul><li>Full-length timed mock tests</li><li>Score and rank analysis</li><li>Weak-topic report</li></ul><a class="btn" href="#contact">Join test series</a></article>
+    <article class="card"><h3>Mentor batch</h3><p class="price">₹2,999 <small>per month</small></p><ul><li>Live classes</li><li>Doubt solving</li><li>Personal study plan</li></ul><a class="btn alt" href="#contact">Ask about the batch</a></article>
+  </div>
+</div></section>
+
+<section id="faq" class="tint"><div class="wrap narrow">
+  <h2>Questions students ask</h2>
+  <details><summary>Who is this for?</summary><p>Students in Class 11 and 12, and droppers who are preparing for NEET UG.</p></details>
+  <details><summary>Can I study on my phone?</summary><p>Yes. Every page works on phones, tablets and laptops.</p></details>
+  <details><summary>How do the mock tests work?</summary><p>They are timed and follow the exam pattern, so you practise pacing as well as answers.</p></details>
+  <details><summary>Can I try before I pay?</summary><p>Yes. Free practice questions are open to everyone, with no sign-up.</p></details>
+</div></section>
+
+<section id="contact"><div class="wrap narrow">
+  <h2>Talk to us</h2>
+  <p>Tell us your class and what you need help with.</p>
+  <form id="contactform" novalidate>
+    <label for="fullname">Full name</label><input id="fullname" name="fullname" required autocomplete="name">
+    <label for="phone">Phone or email</label><input id="phone" name="phone" required autocomplete="tel">
+    <label for="goal">I am in</label>
+    <select id="goal" name="goal" required><option value="">Choose one</option><option>Class 11</option><option>Class 12</option><option>Dropper</option></select>
+    <label for="msg">Message</label><textarea id="msg" name="msg" rows="4"></textarea>
+    <button class="btn" type="submit">Send message</button>
+    <p id="sent" role="status"></p>
+  </form>
+</div></section>
+</main>
+
+<footer><div class="wrap">© <span id="yr"></span> NEETVIDYA. Medical education, coaching and examination platform.</div></footer>
+<script src="script.js" defer></script>
+</body>
+</html>
