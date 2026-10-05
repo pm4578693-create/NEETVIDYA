@@ -8,27 +8,24 @@ nav.addEventListener('click', e => {
 });
 
 /* Practice questions (edit or add your own) */
-const Q = {
-  Physics: [
-    { q: 'A body of mass 2 kg moves at 3 m/s. What is its kinetic energy?', o: ['3 J', '6 J', '9 J', '18 J'], a: 2, e: 'KE = ½mv² = ½ × 2 × 3² = 9 J.' },
-    { q: 'What is the SI unit of magnetic flux?', o: ['Tesla', 'Weber', 'Henry', 'Gauss'], a: 1, e: 'Flux = B × A, measured in weber (Wb). Tesla is the unit of magnetic field strength.' }
-  ],
-  Chemistry: [
-    { q: 'What is the hybridisation of each carbon atom in ethene (C₂H₄)?', o: ['sp', 'sp²', 'sp³', 'sp³d'], a: 1, e: 'Each carbon forms three sigma bonds and one pi bond, so it is sp² hybridised.' },
-    { q: 'Which of these elements has the highest electronegativity?', o: ['Chlorine', 'Fluorine', 'Oxygen', 'Nitrogen'], a: 1, e: 'Fluorine is the most electronegative element, at 3.98 on the Pauling scale.' }
-  ],
-  Biology: [
-    { q: 'Which enzyme joins Okazaki fragments during DNA replication?', o: ['DNA polymerase III', 'DNA ligase', 'Helicase', 'Primase'], a: 1, e: 'DNA ligase seals the nicks between Okazaki fragments on the lagging strand.' },
-    { q: 'Which part of the human brain controls balance and posture?', o: ['Cerebrum', 'Cerebellum', 'Medulla oblongata', 'Hypothalamus'], a: 1, e: 'The cerebellum coordinates balance, posture and smooth movement.' }
-  ]
-};
-let subject = 'Physics', idx = 0, answered = false;
+
+let subject = 'Physics', order = [], pos = 0, answered = false;
 const tabs = [...document.querySelectorAll('.tabs button')];
 
+function shuffle(n) {
+  const a = [...Array(n).keys()];
+  for (let i = n - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+function start() { order = shuffle(Q[subject].length); pos = 0; render(); }
+
 function render() {
-  const d = Q[subject][idx];
+  const d = Q[subject][order[pos]];
   answered = false;
-  $('#qno').textContent = `${subject}, question ${idx + 1} of ${Q[subject].length}`;
+  $('#qno').textContent = `${subject}, question ${pos + 1} of ${order.length}`;
   $('#qtext').textContent = d.q;
   const box = $('#opts');
   box.innerHTML = '';
@@ -48,7 +45,7 @@ function render() {
 function pick(n, btn) {
   if (answered) return;
   answered = true;
-  const d = Q[subject][idx], all = [...document.querySelectorAll('.opt')];
+  const d = Q[subject][order[pos]], all = [...document.querySelectorAll('.opt')];
   all.forEach(b => b.disabled = true);
   btn.classList.add('sel');
   all[d.a].classList.add('ok');
@@ -61,12 +58,17 @@ function pick(n, btn) {
 }
 
 tabs.forEach(t => t.onclick = () => {
-  subject = t.textContent; idx = 0;
+  subject = t.textContent;
   tabs.forEach(x => x.setAttribute('aria-pressed', x === t));
-  render();
+  start();
 });
-$('#next').onclick = () => { idx = (idx + 1) % Q[subject].length; render(); $('#opts button').focus(); };
-render();
+$('#next').onclick = () => {
+  pos++;
+  if (pos >= order.length) { order = shuffle(order.length); pos = 0; }
+  render();
+  $('#opts button').focus();
+};
+start();
 
 /* Study planner */
 const pf = $('#plan'), out = $('#planout');
