@@ -94,11 +94,12 @@ footer{padding:32px 0;border-top:1px solid var(--line);font-size:.95rem}
 
 /* Top contact bar */
 .topbar{background:var(--ink);color:#fff;font-size:.9rem}
-.topbar .wrap{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 22px;padding:8px 0}
+.topbar .wrap{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:6px 20px;padding:8px 0}
 .topbar a{display:inline-flex;align-items:center;gap:7px;color:#fff;text-decoration:none;padding:2px 0}
+.topbar a:first-child{margin-right:auto}
 .topbar a:hover{color:var(--pencil)}
 .topbar .adm{background:var(--pencil);color:var(--ink);padding:3px 14px;border-radius:999px;font-weight:600}
 .topbar .adm:hover{background:#fff;color:var(--ink)}
 .topbar a:focus-visible{outline-color:#fff}
 .ic{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
-@media(min-width:820px){.topbar .wrap{justify-content:flex-end}}
+@media(max-width:560px){.tg span{display:none}}
