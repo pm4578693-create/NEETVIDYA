@@ -1,0 +1,33 @@
+/* Courses page */
+.phead{padding:56px 0 8px}
+.eyebrow{display:inline-block;margin:0 0 .6em;font-weight:600;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.courses{padding-top:32px}
+.grid-c{display:grid;gap:24px}
+
+.course{position:relative;display:flex;flex-direction:column;background:#fff;border:2px solid var(--line);border-radius:16px;padding:28px;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.course:hover,.course:focus-within{border-color:var(--ink);box-shadow:8px 8px 0 var(--pencil)}
+.course:hover .btn,.course:focus-within .btn{background:var(--teal);border-color:var(--teal)}
+.course .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tags span{font-size:.85rem;font-weight:600;padding:4px 12px;border-radius:999px;background:#e3eeee}
+.tags span:last-child{background:var(--pencil)}
+.course h2{font-size:2.1rem;margin-bottom:.3em}
+.fee{display:flex;align-items:baseline;gap:8px;margin:4px 0 18px}
+.fee b{font:800 2rem "Bricolage Grotesque",system-ui,sans-serif}
+.fee span{color:#44666c}
+.feat{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:8px}
+.feat li{position:relative;padding-left:30px}
+.feat li::before{content:"\2713";position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:var(--teal);color:#fff;font-size:.75rem;line-height:20px;text-align:center}
+.course .btn{align-self:flex-start;margin-top:auto}
+
+.course details{background:none;border:0;border-top:1px solid var(--line);border-radius:0;margin:20px 0 0;padding:14px 0 0}
+.course summary span{display:inline-block;min-width:22px;height:22px;margin-left:6px;border-radius:11px;background:var(--ink);color:#fff;font-size:.8rem;line-height:22px;text-align:center}
+.course details ul{margin:12px 0 0;padding-left:1.1em}
+
+.band{background:var(--ink);color:#fff;text-align:center}
+.band p{margin-inline:auto;color:#cfe0e0}
+.band .btn:hover{background:#fff;border-color:#fff;color:var(--ink)}
+
+@media(min-width:820px){.grid-c{grid-template-columns:1fr 1fr}}
+@media(hover:hover){.course:hover{transform:translateY(-8px)}}
+@media(prefers-reduced-motion:reduce){.course{transition:none}.course:hover{transform:none}}
